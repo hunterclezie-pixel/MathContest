@@ -32,6 +32,11 @@
             ButtonGroupBox = new GroupBox();
             CurrentMathGroupBox = new GroupBox();
             MathTypeGroupBox = new GroupBox();
+            SubmitButton = new Button();
+            ClearButton = new Button();
+            SummaryButton = new Button();
+            ExitButton = new Button();
+            ButtonGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // StudentInfoGroupBox
@@ -45,6 +50,10 @@
             // 
             // ButtonGroupBox
             // 
+            ButtonGroupBox.Controls.Add(ExitButton);
+            ButtonGroupBox.Controls.Add(SummaryButton);
+            ButtonGroupBox.Controls.Add(ClearButton);
+            ButtonGroupBox.Controls.Add(SubmitButton);
             ButtonGroupBox.Location = new Point(542, 22);
             ButtonGroupBox.Name = "ButtonGroupBox";
             ButtonGroupBox.Size = new Size(246, 416);
@@ -69,6 +78,42 @@
             MathTypeGroupBox.TabStop = false;
             MathTypeGroupBox.Text = "Math Problem Type ";
             // 
+            // SubmitButton
+            // 
+            SubmitButton.Location = new Point(6, 20);
+            SubmitButton.Name = "SubmitButton";
+            SubmitButton.Size = new Size(234, 68);
+            SubmitButton.TabIndex = 0;
+            SubmitButton.Text = "Submit";
+            SubmitButton.UseVisualStyleBackColor = true;
+            // 
+            // ClearButton
+            // 
+            ClearButton.Location = new Point(6, 94);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(234, 68);
+            ClearButton.TabIndex = 1;
+            ClearButton.Text = "Clear";
+            ClearButton.UseVisualStyleBackColor = true;
+            // 
+            // SummaryButton
+            // 
+            SummaryButton.Location = new Point(6, 168);
+            SummaryButton.Name = "SummaryButton";
+            SummaryButton.Size = new Size(234, 68);
+            SummaryButton.TabIndex = 2;
+            SummaryButton.Text = "Summary";
+            SummaryButton.UseVisualStyleBackColor = true;
+            // 
+            // ExitButton
+            // 
+            ExitButton.Location = new Point(6, 242);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(234, 68);
+            ExitButton.TabIndex = 3;
+            ExitButton.Text = "Exit";
+            ExitButton.UseVisualStyleBackColor = true;
+            // 
             // MathContest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -80,6 +125,7 @@
             Controls.Add(StudentInfoGroupBox);
             Name = "MathContest";
             Text = "Form1";
+            ButtonGroupBox.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -89,5 +135,9 @@
         private GroupBox ButtonGroupBox;
         private GroupBox CurrentMathGroupBox;
         private GroupBox MathTypeGroupBox;
+        private Button ExitButton;
+        private Button SummaryButton;
+        private Button ClearButton;
+        private Button SubmitButton;
     }
 }
