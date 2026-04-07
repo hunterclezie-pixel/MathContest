@@ -48,9 +48,14 @@
             SecondNumberLabel = new Label();
             StudentAnswerLabel = new Label();
             textBox1 = new TextBox();
+            AdditionRadioButton = new RadioButton();
+            SubtractionRadioButton = new RadioButton();
+            MultiplicationRadioButton = new RadioButton();
+            DivisionRadioButton = new RadioButton();
             StudentInfoGroupBox.SuspendLayout();
             ButtonGroupBox.SuspendLayout();
             CurrentMathGroupBox.SuspendLayout();
+            MathTypeGroupBox.SuspendLayout();
             SuspendLayout();
             // 
             // StudentInfoGroupBox
@@ -133,6 +138,10 @@
             // 
             // MathTypeGroupBox
             // 
+            MathTypeGroupBox.Controls.Add(DivisionRadioButton);
+            MathTypeGroupBox.Controls.Add(MultiplicationRadioButton);
+            MathTypeGroupBox.Controls.Add(SubtractionRadioButton);
+            MathTypeGroupBox.Controls.Add(AdditionRadioButton);
             MathTypeGroupBox.Location = new Point(298, 156);
             MathTypeGroupBox.Name = "MathTypeGroupBox";
             MathTypeGroupBox.Size = new Size(238, 282);
@@ -236,6 +245,50 @@
             textBox1.Size = new Size(254, 27);
             textBox1.TabIndex = 4;
             // 
+            // AdditionRadioButton
+            // 
+            AdditionRadioButton.AutoSize = true;
+            AdditionRadioButton.Location = new Point(9, 51);
+            AdditionRadioButton.Name = "AdditionRadioButton";
+            AdditionRadioButton.Size = new Size(88, 24);
+            AdditionRadioButton.TabIndex = 0;
+            AdditionRadioButton.TabStop = true;
+            AdditionRadioButton.Text = "Addition";
+            AdditionRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // SubtractionRadioButton
+            // 
+            SubtractionRadioButton.AutoSize = true;
+            SubtractionRadioButton.Location = new Point(9, 92);
+            SubtractionRadioButton.Name = "SubtractionRadioButton";
+            SubtractionRadioButton.Size = new Size(106, 24);
+            SubtractionRadioButton.TabIndex = 1;
+            SubtractionRadioButton.TabStop = true;
+            SubtractionRadioButton.Text = "Subtraction";
+            SubtractionRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // MultiplicationRadioButton
+            // 
+            MultiplicationRadioButton.AutoSize = true;
+            MultiplicationRadioButton.Location = new Point(9, 131);
+            MultiplicationRadioButton.Name = "MultiplicationRadioButton";
+            MultiplicationRadioButton.Size = new Size(122, 24);
+            MultiplicationRadioButton.TabIndex = 2;
+            MultiplicationRadioButton.TabStop = true;
+            MultiplicationRadioButton.Text = "Multiplication";
+            MultiplicationRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // DivisionRadioButton
+            // 
+            DivisionRadioButton.AutoSize = true;
+            DivisionRadioButton.Location = new Point(9, 170);
+            DivisionRadioButton.Name = "DivisionRadioButton";
+            DivisionRadioButton.Size = new Size(83, 24);
+            DivisionRadioButton.TabIndex = 3;
+            DivisionRadioButton.TabStop = true;
+            DivisionRadioButton.Text = "Division";
+            DivisionRadioButton.UseVisualStyleBackColor = true;
+            // 
             // MathContest
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -246,12 +299,14 @@
             Controls.Add(ButtonGroupBox);
             Controls.Add(StudentInfoGroupBox);
             Name = "MathContest";
-            Text = "Form1";
+            Text = "Math Contest";
             StudentInfoGroupBox.ResumeLayout(false);
             StudentInfoGroupBox.PerformLayout();
             ButtonGroupBox.ResumeLayout(false);
             CurrentMathGroupBox.ResumeLayout(false);
             CurrentMathGroupBox.PerformLayout();
+            MathTypeGroupBox.ResumeLayout(false);
+            MathTypeGroupBox.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -277,5 +332,9 @@
         private Label SecondNumberLabel;
         private Label FirstNumberLabel;
         private TextBox SecondNumberTextBox;
+        private RadioButton DivisionRadioButton;
+        private RadioButton MultiplicationRadioButton;
+        private RadioButton SubtractionRadioButton;
+        private RadioButton AdditionRadioButton;
     }
 }
