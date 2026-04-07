@@ -12,6 +12,28 @@ namespace MathContest
         public MathContest()
         {
             InitializeComponent();
+            SetDefaults();
         }
+
+        //Custom Methids below here --------------------------------------------------------------
+
+        void SetDefaults()
+        {
+            StudentNameTextBox.Text = "";
+            AgeTextBox.Text = "";
+            GradeTextBox.Text = "";
+            FirstNumberTextBox.Text = "";
+            SecondNumberTextBox.Text = "";
+            StudentAnswerTextBox.Text = "";
+            AdditionRadioButton.Checked = true;
+        }
+
+        //Event Handlers below here --------------------------------------------------------------
+
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        
     }
 }
