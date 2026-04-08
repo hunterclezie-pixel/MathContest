@@ -58,6 +58,30 @@ namespace MathContest
             SecondNumberTextBox.Text = secondNumber.ToString();
         }
 
+        void MathFunction()
+        {
+            int firstNumber = int.Parse(FirstNumberTextBox.Text);
+            int secondNumber = int.Parse(SecondNumberTextBox.Text);
+            int studentAnswer = int.Parse(StudentAnswerTextBox.Text);
+            int correctAnswer = 0;
+            if (AdditionRadioButton.Checked)
+            {
+                correctAnswer = firstNumber + secondNumber;
+            }
+            else if (SubtractionRadioButton.Checked)
+            {
+                correctAnswer = firstNumber - secondNumber;
+            }
+            else if (MultiplicationRadioButton.Checked)
+            {
+                correctAnswer = firstNumber * secondNumber;
+            }
+            else if (DivisionRadioButton.Checked)
+            {
+                correctAnswer = firstNumber / secondNumber;
+            }
+        }
+
         //Event Handlers below here --------------------------------------------------------------
 
         private void ExitButton_Click(object sender, EventArgs e)
