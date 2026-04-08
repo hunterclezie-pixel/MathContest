@@ -42,6 +42,22 @@ namespace MathContest
             }
         }
 
+        //Random number generator for the first number in the math problem
+        private void FirstNumberGenerator() 
+        {
+            Random random = new Random();
+            int firstNumber = random.Next(1, 11);
+            FirstNumberTextBox.Text = firstNumber.ToString();
+        }
+
+        //Random number generator for the second number in the math problem
+        private void SecondNumberGenerator()
+        {
+            Random random = new Random();
+            int secondNumber = random.Next(1, 11);
+            SecondNumberTextBox.Text = secondNumber.ToString();
+        }
+
         //Event Handlers below here --------------------------------------------------------------
 
         private void ExitButton_Click(object sender, EventArgs e)
