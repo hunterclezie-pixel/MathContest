@@ -106,6 +106,7 @@
             AgeTextBox.Name = "AgeTextBox";
             AgeTextBox.Size = new Size(31, 27);
             AgeTextBox.TabIndex = 2;
+            AgeTextBox.TextChanged += AgeTextBox_TextChanged;
             // 
             // GradeTextBox
             // 
@@ -113,6 +114,7 @@
             GradeTextBox.Name = "GradeTextBox";
             GradeTextBox.Size = new Size(31, 27);
             GradeTextBox.TabIndex = 1;
+            GradeTextBox.TextChanged += GradeTextBox_TextChanged;
             // 
             // StudentNameTextBox
             // 
@@ -120,6 +122,7 @@
             StudentNameTextBox.Name = "StudentNameTextBox";
             StudentNameTextBox.Size = new Size(260, 27);
             StudentNameTextBox.TabIndex = 0;
+            StudentNameTextBox.TextChanged += StudentNameTextBox_TextChanged;
             // 
             // ButtonGroupBox
             // 
@@ -202,6 +205,7 @@
             StudentAnswerTextBox.Name = "StudentAnswerTextBox";
             StudentAnswerTextBox.Size = new Size(254, 27);
             StudentAnswerTextBox.TabIndex = 4;
+            StudentAnswerTextBox.TextChanged += StudentAnswerTextBox_TextChanged;
             // 
             // SecondNumberLabel
             // 
