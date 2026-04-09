@@ -133,7 +133,7 @@ namespace MathContest
         }
 
         //Random number generator for the first number in the math problem
-        private void FirstNumberGenerator() 
+        private void FirstNumberGenerator()
         {
             Random random = new Random();
             int firstNumber = random.Next(1, 11);
@@ -183,5 +183,12 @@ namespace MathContest
         {
             SetDefaults();
         }
+
+        private void SubmitButton_Click(object sender, EventArgs e)
+        {
+            MathFunction();
+            //finish function to check if the student's answer is correct and update the summary
+        }
+
     }
 }
