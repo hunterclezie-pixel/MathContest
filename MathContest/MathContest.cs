@@ -104,6 +104,20 @@ namespace MathContest
             SubmitButton.Enabled = valid;
         }
 
+        private void GradeCheck()
+        {
+            if (int.Parse(GradeTextBox.Text) >= 1 || int.Parse(GradeTextBox.Text) <= 4)
+            {
+                GradeTextBox.BackColor = Color.White;
+                SubmitButton.Enabled = true;
+            }
+            else
+            {
+                GradeTextBox.BackColor = Color.LightYellow;
+                SubmitButton.Enabled = false;
+            }
+        }
+
         //Random number generator for the first number in the math problem
         private void FirstNumberGenerator() 
         {
