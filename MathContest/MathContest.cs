@@ -9,6 +9,21 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace MathContest
 {
+    /*
+    [] Enter the child's name, grade (1-4), and age (7-11)
+    [] Choose a math problem type (add, subtract, multiply, divide) using radio buttons (add selected by default)
+    [] Validate all required information. Change the textbox color to light yellow for missing/incorrect fields
+    [] Lock the Submit button until all required fields are filled in correctly
+    [] Lock the Summary button until the Submit button has been clicked at least once
+    [] If the clear button is clicked, reset all fields to their default state
+    [] If any of the student information fields are changed reset the summary to its default state and consider it a new student
+    [] Generate new random numbers for each problem or whenever the problem type is changed
+    [] Do not allow the user to enter their own numbers
+    [] Allow the contestant to enter their answer and submit
+    [] Show a congratulations message if correct, or the correct answer if not
+    [] Keep a total of correct/incorrect responses for the current student and show a summary when requested
+    */
+
     public partial class MathContest : Form
     {
         public MathContest()
@@ -24,22 +39,69 @@ namespace MathContest
         void SetDefaults()
         {
             StudentNameTextBox.Text = "";
+            StudentNameTextBox.BackColor = Color.LightYellow;
             AgeTextBox.Text = "";
+            AgeTextBox.BackColor = Color.LightYellow;
             GradeTextBox.Text = "";
+            GradeTextBox.BackColor = Color.LightYellow;
             FirstNumberTextBox.Text = "";
             SecondNumberTextBox.Text = "";
             StudentAnswerTextBox.Text = "";
+            StudentAnswerTextBox.BackColor = Color.LightYellow;
             AdditionRadioButton.Checked = true;
             SubmitButton.Enabled = false;
             SummaryButton.Enabled = false;
         }
 
-        private void ValidateSubmit(object sender, EventArgs e)
+        private void ValidateFields(object sender, EventArgs e)
         {
-            if (StudentNameTextBox.Text != "" && AgeTextBox.Text != "" && GradeTextBox.Text != "" && StudentAnswerTextBox.Text != "");
+            bool valid = true;
+
+            try
             {
-                SubmitButton.Enabled = true;
+                StudentNameTextBox.Text = "";
+                StudentNameTextBox.BackColor = Color.White;
             }
+            catch (Exception)
+            {
+                StudentNameTextBox.BackColor = Color.LightYellow;
+                valid = false;
+            }
+
+            try
+            {
+                AgeTextBox.Text = "";
+                AgeTextBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                AgeTextBox.BackColor = Color.LightYellow;
+                valid = false;
+            }
+
+            try
+            {
+                GradeTextBox.Text = "";
+                GradeTextBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                GradeTextBox.BackColor = Color.LightYellow;
+                valid = false;
+            }
+
+            try
+            {
+                StudentAnswerTextBox.Text = "";
+                StudentAnswerTextBox.BackColor = Color.White;
+            }
+            catch (Exception)
+            {
+                StudentAnswerTextBox.BackColor = Color.LightYellow;
+                valid = false;
+            }
+
+            SubmitButton.Enabled = valid;
         }
 
         //Random number generator for the first number in the math problem
