@@ -30,6 +30,7 @@ namespace MathContest
         {
             InitializeComponent();
             SetDefaults();
+            SubmitButtonEnable();
             FirstNumberGenerator();
             SecondNumberGenerator();
         }
@@ -53,7 +54,7 @@ namespace MathContest
             SummaryButton.Enabled = false;
         }
 
-        private void ValidateFields(object sender, EventArgs e)
+        private bool ValidateFields()
         {
             bool valid = true;
 
@@ -61,6 +62,7 @@ namespace MathContest
             {
                 StudentNameTextBox.Text = "";
                 StudentNameTextBox.BackColor = Color.White;
+                valid = true;
             }
             catch (Exception)
             {
@@ -70,8 +72,16 @@ namespace MathContest
 
             try
             {
-                AgeTextBox.Text = "";
-                AgeTextBox.BackColor = Color.White;
+                if (int.Parse(AgeTextBox.Text) >= 7 || int.Parse(AgeTextBox.Text) <= 11)
+                {
+                    AgeTextBox.BackColor = Color.White;
+                    SubmitButton.Enabled = true;
+                }
+                else
+                {
+                    AgeTextBox.BackColor = Color.LightYellow;
+                    valid = false;
+                }
             }
             catch (Exception)
             {
@@ -81,8 +91,12 @@ namespace MathContest
 
             try
             {
-                GradeTextBox.Text = "";
-                GradeTextBox.BackColor = Color.White;
+                if (int.Parse(GradeTextBox.Text) >= 1 || int.Parse(GradeTextBox.Text) <= 4)
+                {
+                    AgeTextBox.BackColor = Color.White;
+                    SubmitButton.Enabled = true;
+                }
+                valid = true;
             }
             catch (Exception)
             {
@@ -94,14 +108,26 @@ namespace MathContest
             {
                 StudentAnswerTextBox.Text = "";
                 StudentAnswerTextBox.BackColor = Color.White;
+                valid = true;
             }
             catch (Exception)
             {
                 StudentAnswerTextBox.BackColor = Color.LightYellow;
                 valid = false;
             }
+            return valid;
+        }
 
-            SubmitButton.Enabled = valid;
+        private void SubmitButtonEnable()
+        { 
+            if (ValidateFields())
+            {
+                SubmitButton.Enabled = true;
+            }
+            else
+            {
+                SubmitButton.Enabled = false;
+            }
         }
 
         private void GradeCheck()
@@ -187,8 +213,11 @@ namespace MathContest
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             MathFunction();
+
+            //generate new random numbers for the next problem
+            FirstNumberGenerator();
+            SecondNumberGenerator();
             //finish function to check if the student's answer is correct and update the summary
         }
-
     }
 }
