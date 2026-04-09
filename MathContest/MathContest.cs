@@ -120,37 +120,6 @@ namespace MathContest
             return valid;
         }
 
-
-
-
-        private void GradeCheck()
-        {
-            if (int.Parse(GradeTextBox.Text) >= 1 || int.Parse(GradeTextBox.Text) <= 4)
-            {
-                GradeTextBox.BackColor = Color.White;
-                SubmitButton.Enabled = true;
-            }
-            else
-            {
-                GradeTextBox.BackColor = Color.LightYellow;
-                SubmitButton.Enabled = false;
-            }
-        }
-
-        private void AgeCheck()
-        {
-            if (int.Parse(AgeTextBox.Text) >= 7 || int.Parse(AgeTextBox.Text) <= 11)
-            {
-                AgeTextBox.BackColor = Color.White;
-                SubmitButton.Enabled = true;
-            }
-            else
-            {
-                AgeTextBox.BackColor = Color.LightYellow;
-                SubmitButton.Enabled = false;
-            }
-        }
-
         //Random number generator for the first number in the math problem
         private void FirstNumberGenerator()
         {
