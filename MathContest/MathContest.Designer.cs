@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             StudentInfoGroupBox = new GroupBox();
             GradeLabel = new Label();
             AgeLabel = new Label();
@@ -52,6 +53,7 @@
             MultiplicationRadioButton = new RadioButton();
             SubtractionRadioButton = new RadioButton();
             AdditionRadioButton = new RadioButton();
+            ToolTip = new ToolTip(components);
             StudentInfoGroupBox.SuspendLayout();
             ButtonGroupBox.SuspendLayout();
             CurrentMathGroupBox.SuspendLayout();
@@ -81,6 +83,7 @@
             GradeLabel.Size = new Size(49, 20);
             GradeLabel.TabIndex = 5;
             GradeLabel.Text = "Grade";
+            ToolTip.SetToolTip(GradeLabel, "Grades 1st to 4th");
             // 
             // AgeLabel
             // 
@@ -90,6 +93,7 @@
             AgeLabel.Size = new Size(36, 20);
             AgeLabel.TabIndex = 4;
             AgeLabel.Text = "Age";
+            ToolTip.SetToolTip(AgeLabel, "Ages 7 to 11");
             // 
             // StudentNameLabel
             // 
@@ -99,6 +103,7 @@
             StudentNameLabel.Size = new Size(113, 20);
             StudentNameLabel.TabIndex = 3;
             StudentNameLabel.Text = "Student's Name";
+            ToolTip.SetToolTip(StudentNameLabel, "Student's name");
             // 
             // AgeTextBox
             // 
@@ -143,6 +148,7 @@
             ExitButton.Size = new Size(234, 68);
             ExitButton.TabIndex = 3;
             ExitButton.Text = "Exit";
+            ToolTip.SetToolTip(ExitButton, "Exits the program");
             ExitButton.UseVisualStyleBackColor = true;
             ExitButton.Click += ExitButton_Click;
             // 
@@ -153,6 +159,7 @@
             SummaryButton.Size = new Size(234, 68);
             SummaryButton.TabIndex = 2;
             SummaryButton.Text = "Summary";
+            ToolTip.SetToolTip(SummaryButton, "Gives a summary of correct out of all");
             SummaryButton.UseVisualStyleBackColor = true;
             SummaryButton.Click += SummaryButton_Click;
             // 
@@ -163,6 +170,7 @@
             ClearButton.Size = new Size(234, 68);
             ClearButton.TabIndex = 1;
             ClearButton.Text = "Clear";
+            ToolTip.SetToolTip(ClearButton, "Clears all");
             ClearButton.UseVisualStyleBackColor = true;
             ClearButton.Click += ClearButton_Click;
             // 
@@ -173,6 +181,7 @@
             SubmitButton.Size = new Size(234, 68);
             SubmitButton.TabIndex = 0;
             SubmitButton.Text = "Submit";
+            ToolTip.SetToolTip(SubmitButton, "Submits your answer");
             SubmitButton.UseVisualStyleBackColor = true;
             SubmitButton.Click += SubmitButton_Click;
             // 
@@ -199,6 +208,7 @@
             StudentAnswerLabel.Size = new Size(121, 20);
             StudentAnswerLabel.TabIndex = 5;
             StudentAnswerLabel.Text = "Student's Answer";
+            ToolTip.SetToolTip(StudentAnswerLabel, "Student's number answer");
             // 
             // StudentAnswerTextBox
             // 
@@ -216,6 +226,7 @@
             SecondNumberLabel.Size = new Size(116, 20);
             SecondNumberLabel.TabIndex = 3;
             SecondNumberLabel.Text = "Second Number";
+            ToolTip.SetToolTip(SecondNumberLabel, "Second Number of the problem");
             // 
             // FirstNumberLabel
             // 
@@ -225,6 +236,7 @@
             FirstNumberLabel.Size = new Size(94, 20);
             FirstNumberLabel.TabIndex = 2;
             FirstNumberLabel.Text = "First Number";
+            ToolTip.SetToolTip(FirstNumberLabel, "First Number of the problem");
             // 
             // SecondNumberTextBox
             // 
@@ -252,6 +264,7 @@
             MathTypeGroupBox.TabIndex = 3;
             MathTypeGroupBox.TabStop = false;
             MathTypeGroupBox.Text = "Math Problem Type ";
+            ToolTip.SetToolTip(MathTypeGroupBox, "Check the button for the desired problem type");
             // 
             // DivisionRadioButton
             // 
@@ -262,6 +275,7 @@
             DivisionRadioButton.TabIndex = 3;
             DivisionRadioButton.TabStop = true;
             DivisionRadioButton.Text = "Division";
+            ToolTip.SetToolTip(DivisionRadioButton, "Division Button");
             DivisionRadioButton.UseVisualStyleBackColor = true;
             // 
             // MultiplicationRadioButton
@@ -273,6 +287,7 @@
             MultiplicationRadioButton.TabIndex = 2;
             MultiplicationRadioButton.TabStop = true;
             MultiplicationRadioButton.Text = "Multiplication";
+            ToolTip.SetToolTip(MultiplicationRadioButton, "Multiplication Button");
             MultiplicationRadioButton.UseVisualStyleBackColor = true;
             // 
             // SubtractionRadioButton
@@ -284,6 +299,7 @@
             SubtractionRadioButton.TabIndex = 1;
             SubtractionRadioButton.TabStop = true;
             SubtractionRadioButton.Text = "Subtraction";
+            ToolTip.SetToolTip(SubtractionRadioButton, "Subtraction Button");
             SubtractionRadioButton.UseVisualStyleBackColor = true;
             // 
             // AdditionRadioButton
@@ -295,6 +311,7 @@
             AdditionRadioButton.TabIndex = 0;
             AdditionRadioButton.TabStop = true;
             AdditionRadioButton.Text = "Addition";
+            ToolTip.SetToolTip(AdditionRadioButton, "Addition Button");
             AdditionRadioButton.UseVisualStyleBackColor = true;
             // 
             // MathContest
@@ -344,5 +361,6 @@
         private RadioButton MultiplicationRadioButton;
         private RadioButton SubtractionRadioButton;
         private RadioButton AdditionRadioButton;
+        private ToolTip ToolTip;
     }
 }
