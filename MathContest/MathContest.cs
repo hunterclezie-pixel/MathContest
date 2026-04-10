@@ -41,6 +41,7 @@ namespace MathContest
 
         //Custom Methids below here --------------------------------------------------------------
 
+        //Sets defaults
         void SetDefaults()
         {
             StudentNameTextBox.Text = "";
@@ -60,6 +61,7 @@ namespace MathContest
             SummaryButton.Enabled = false;
         }
 
+        //Validates the contestant's information to unlock the submit button
         private bool ValidateFields()
         {
             bool valid = true;
@@ -67,7 +69,6 @@ namespace MathContest
             if (StudentNameTextBox.Text != "")
             {
                 StudentNameTextBox.BackColor = Color.White;
-                valid = true;
             }
             else
             {
@@ -80,7 +81,6 @@ namespace MathContest
                 if (int.Parse(AgeTextBox.Text) >= 7 && int.Parse(AgeTextBox.Text) <= 11)
                 {
                     AgeTextBox.BackColor = Color.White;
-                    valid = true;
                 }
                 else
                 {
@@ -96,15 +96,14 @@ namespace MathContest
 
             try
             {
-                if (int.Parse(GradeTextBox.Text) >= 1 || int.Parse(GradeTextBox.Text) <= 4)
+                if (int.Parse(GradeTextBox.Text) >= 1 && int.Parse(GradeTextBox.Text) <= 4)
                 {
                     GradeTextBox.BackColor = Color.White;
-                    SubmitButton.Enabled = true;
                 }
                 else
                 {
                     GradeTextBox.BackColor = Color.LightYellow;
-                    SubmitButton.Enabled = false;
+                    valid = false;
                 }
             }
             catch (Exception)
@@ -116,7 +115,6 @@ namespace MathContest
             if (StudentAnswerTextBox.Text != "")
             {
                 StudentAnswerTextBox.BackColor = Color.White;
-                valid = true;
             }
             else
             {
@@ -143,11 +141,13 @@ namespace MathContest
             SecondNumberTextBox.Text = secondNumber.ToString();
         }
 
+        //Provides the function to each math type offored by the radio buttons
         void MathFunction()
         {
             int firstNumber = int.Parse(FirstNumberTextBox.Text);
             int secondNumber = int.Parse(SecondNumberTextBox.Text);
             int studentAnswer = int.Parse(StudentAnswerTextBox.Text);
+
             if (AdditionRadioButton.Checked)
             {
                 correctAnswer = firstNumber + secondNumber;
@@ -201,7 +201,7 @@ namespace MathContest
         private void SummaryButton_Click(object sender, EventArgs e)
         { 
             MessageBox.Show($"You have answered {correctAnswerNumber} problems correctly out of {submitPushedNumber}.");
-
+            SetDefaults();
         }
 
         private void StudentNameTextBox_TextChanged(object sender, EventArgs e)
@@ -263,22 +263,14 @@ namespace MathContest
 
         private void StudentAnswerTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (submitPushedNumber >= 1)
+            if (ValidateFields())
             {
-                SetDefaults();
+                SubmitButton.Enabled = true;
             }
             else
             {
-                if (ValidateFields())
-                {
-                    SubmitButton.Enabled = true;
-                }
-                else
-                {
-                    SubmitButton.Enabled = false;
-                }
+                SubmitButton.Enabled = false;
             }
         }
-        
     }
 }
