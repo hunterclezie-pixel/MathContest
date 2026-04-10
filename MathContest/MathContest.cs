@@ -146,7 +146,6 @@ namespace MathContest
         {
             int firstNumber = int.Parse(FirstNumberTextBox.Text);
             int secondNumber = int.Parse(SecondNumberTextBox.Text);
-            int studentAnswer = int.Parse(StudentAnswerTextBox.Text);
 
             if (AdditionRadioButton.Checked)
             {
@@ -181,6 +180,15 @@ namespace MathContest
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             MathFunction();
+            try
+            {
+                int.Parse(StudentAnswerTextBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Please enter a valid answer.");
+                return;
+            }
             if (int.Parse(StudentAnswerTextBox.Text) == correctAnswer)
             {
                 MessageBox.Show("Congratulations! Your answer is correct.");
@@ -201,7 +209,6 @@ namespace MathContest
         private void SummaryButton_Click(object sender, EventArgs e)
         { 
             MessageBox.Show($"You have answered {correctAnswerNumber} problems correctly out of {submitPushedNumber}.");
-            SetDefaults();
         }
 
         private void StudentNameTextBox_TextChanged(object sender, EventArgs e)
