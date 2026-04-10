@@ -154,6 +154,7 @@
             SummaryButton.TabIndex = 2;
             SummaryButton.Text = "Summary";
             SummaryButton.UseVisualStyleBackColor = true;
+            SummaryButton.Click += SummaryButton_Click;
             // 
             // ClearButton
             // 

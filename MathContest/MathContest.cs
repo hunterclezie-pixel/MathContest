@@ -34,6 +34,10 @@ namespace MathContest
             SecondNumberGenerator();
         }
 
+        int submitPushedNumber = 0;
+        int correctAnswer = 0;
+        int correctAnswerNumber = 0;
+
         //Custom Methids below here --------------------------------------------------------------
 
         void SetDefaults()
@@ -45,7 +49,9 @@ namespace MathContest
             GradeTextBox.Text = "";
             GradeTextBox.BackColor = Color.LightYellow;
             FirstNumberTextBox.Text = "";
+            FirstNumberTextBox.Enabled = false;
             SecondNumberTextBox.Text = "";
+            SecondNumberTextBox.Enabled = false;
             StudentAnswerTextBox.Text = "";
             StudentAnswerTextBox.BackColor = Color.LightYellow;
             AdditionRadioButton.Checked = true;
@@ -75,13 +81,13 @@ namespace MathContest
                     AgeTextBox.BackColor = Color.White;
                     valid = true;
                 }
-                else 
+                else
                 {
                     AgeTextBox.BackColor = Color.LightYellow;
                     valid = false;
                 }
             }
-            catch (Exception) 
+            catch (Exception)
             {
                 AgeTextBox.BackColor = Color.LightYellow;
                 valid = false;
@@ -141,7 +147,6 @@ namespace MathContest
             int firstNumber = int.Parse(FirstNumberTextBox.Text);
             int secondNumber = int.Parse(SecondNumberTextBox.Text);
             int studentAnswer = int.Parse(StudentAnswerTextBox.Text);
-            int correctAnswer = 0;
             if (AdditionRadioButton.Checked)
             {
                 correctAnswer = firstNumber + secondNumber;
@@ -175,22 +180,45 @@ namespace MathContest
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             MathFunction();
-
+            if (int.Parse(StudentAnswerTextBox.Text) == correctAnswer)
+            {
+                MessageBox.Show("Congratulations! Your answer is correct.");
+                correctAnswerNumber++;
+            }
+            else
+            {
+                MessageBox.Show($"Sorry, the correct answer is {correctAnswer}.");
+            }
             //generate new random numbers for the next problem
             FirstNumberGenerator();
             SecondNumberGenerator();
             //finish function to check if the student's answer is correct and update the summary
+            SummaryButton.Enabled = true;
+            submitPushedNumber++;
+        }
+
+        private void SummaryButton_Click(object sender, EventArgs e)
+        { 
+            MessageBox.Show($"You have answered {correctAnswerNumber} problems correctly out of {submitPushedNumber}.");
+
         }
 
         private void StudentNameTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (ValidateFields())
+            if (submitPushedNumber >= 1)
             {
-                SubmitButton.Enabled = true;
+                SetDefaults();
             }
             else
             {
-                SubmitButton.Enabled = false;
+                if (ValidateFields())
+                {
+                    SubmitButton.Enabled = true;
+                }
+                else
+                {
+                    SubmitButton.Enabled = false;
+                }
             }
         }
 
@@ -220,7 +248,7 @@ namespace MathContest
 
         private void StudentAnswerTextBox_TextChanged(object sender, EventArgs e)
         {
-            if(ValidateFields())
+            if (ValidateFields())
             {
                 SubmitButton.Enabled = true;
             }
@@ -229,5 +257,6 @@ namespace MathContest
                 SubmitButton.Enabled = false;
             }
         }
+        
     }
 }
