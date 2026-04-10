@@ -9,19 +9,20 @@ using System.Diagnostics.Eventing.Reader;
 
 namespace MathContest
 {
-    /*
-    [] Enter the child's name, grade (1-4), and age (7-11)
-    [] Choose a math problem type (add, subtract, multiply, divide) using radio buttons (add selected by default)
-    [] Validate all required information. Change the textbox color to light yellow for missing/incorrect fields
-    [] Lock the Submit button until all required fields are filled in correctly
-    [] Lock the Summary button until the Submit button has been clicked at least once
-    [] If the clear button is clicked, reset all fields to their default state
-    [] If any of the student information fields are changed reset the summary to its default state and consider it a new student
-    [] Generate new random numbers for each problem or whenever the problem type is changed
-    [] Do not allow the user to enter their own numbers
-    [] Allow the contestant to enter their answer and submit
-    [] Show a congratulations message if correct, or the correct answer if not
-    [] Keep a total of correct/incorrect responses for the current student and show a summary when requested
+    /* 
+    ToDo List:
+    [x] Enter the child's name, grade (1-4), and age (7-11)
+    [x] Choose a math problem type (add, subtract, multiply, divide) using radio buttons (add selected by default)
+    [x] Validate all required information. Change the textbox color to light yellow for missing/incorrect fields
+    [x] Lock the Submit button until all required fields are filled in correctly
+    [x] Lock the Summary button until the Submit button has been clicked at least once
+    [x] If the clear button is clicked, reset all fields to their default state
+    [x] If any of the student information fields are changed reset the summary to its default state and consider it a new student
+    [x] Generate new random numbers for each problem or whenever the problem type is changed
+    [x] Do not allow the user to enter their own numbers
+    [x] Allow the contestant to enter their answer and submit
+    [x] Show a congratulations message if correct, or the correct answer if not
+    [x] Keep a total of correct/incorrect responses for the current student and show a summary when requested
     */
 
     public partial class MathContest : Form
@@ -224,37 +225,58 @@ namespace MathContest
 
         private void AgeTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (ValidateFields())
+            if (submitPushedNumber >= 1)
             {
-                SubmitButton.Enabled = true;
+                SetDefaults();
             }
             else
             {
-                SubmitButton.Enabled = false;
+                if (ValidateFields())
+                {
+                    SubmitButton.Enabled = true;
+                }
+                else
+                {
+                    SubmitButton.Enabled = false;
+                }
             }
         }
 
         private void GradeTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (ValidateFields())
+            if (submitPushedNumber >= 1)
             {
-                SubmitButton.Enabled = true;
+                SetDefaults();
             }
             else
             {
-                SubmitButton.Enabled = false;
+                if (ValidateFields())
+                {
+                    SubmitButton.Enabled = true;
+                }
+                else
+                {
+                    SubmitButton.Enabled = false;
+                }
             }
         }
 
         private void StudentAnswerTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (ValidateFields())
+            if (submitPushedNumber >= 1)
             {
-                SubmitButton.Enabled = true;
+                SetDefaults();
             }
             else
             {
-                SubmitButton.Enabled = false;
+                if (ValidateFields())
+                {
+                    SubmitButton.Enabled = true;
+                }
+                else
+                {
+                    SubmitButton.Enabled = false;
+                }
             }
         }
         
