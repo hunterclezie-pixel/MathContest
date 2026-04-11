@@ -31,8 +31,6 @@ namespace MathContest
         {
             InitializeComponent();
             SetDefaults();
-            FirstNumberGenerator();
-            SecondNumberGenerator();
         }
 
         int submitPushedNumber = 0;
@@ -59,6 +57,11 @@ namespace MathContest
             AdditionRadioButton.Checked = true;
             SubmitButton.Enabled = false;
             SummaryButton.Enabled = false;
+            submitPushedNumber = 0;
+            correctAnswer = 0;
+            correctAnswerNumber = 0;
+            FirstNumberGenerator();
+            SecondNumberGenerator();
         }
 
         //Validates the contestant's information to unlock the submit button
